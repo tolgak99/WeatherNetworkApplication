@@ -1,5 +1,7 @@
 package com.example.networkapplication.Activities.Adapter;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.networkapplication.Activities.Activities.WeatherDetailedActivity;
 import com.example.networkapplication.Activities.Entity.Result;
 import com.example.networkapplication.R;
 
@@ -15,6 +18,7 @@ import java.util.List;
 
 public class WeatherResultAdapter extends RecyclerView.Adapter<WeatherResultAdapter.ViewHolder> {
     private List<Result> weatherResultItemList;
+    private Result result;
 
     public WeatherResultAdapter(List<Result> weatherResultItemList) {
         this.weatherResultItemList = weatherResultItemList;
@@ -30,7 +34,7 @@ public class WeatherResultAdapter extends RecyclerView.Adapter<WeatherResultAdap
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        Result result = weatherResultItemList.get(position);
+        result = weatherResultItemList.get(position);
 
         holder.date_textview.setText(result.getDate());
         holder.status_textview.setText(result.getDescription());
@@ -40,7 +44,7 @@ public class WeatherResultAdapter extends RecyclerView.Adapter<WeatherResultAdap
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                navigateDetailActivity(v.getContext());
             }
         });
     }
@@ -63,5 +67,12 @@ public class WeatherResultAdapter extends RecyclerView.Adapter<WeatherResultAdap
             degree_value_textview = v.findViewById(R.id.degree_value_textview);
             degree_textview = v.findViewById(R.id.degree_textview);
         }
+    }
+
+    private void navigateDetailActivity(Context context)
+    {
+        Intent intent = new Intent(context,WeatherDetailedActivity.class);
+        intent.putExtra("result",result);
+        context.startActivity(intent);
     }
 }

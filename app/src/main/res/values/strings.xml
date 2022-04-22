@@ -3,4 +3,5 @@
     <string name="show_saved_data">Kaydedilen Hava Durumlarını Göster</string>
     <string name="show_data">Hava Durumlarını Göster</string>
     <string name="city_name_hint">Şehir İsmi Gir</string>
+    <string name="save">Kaydet</string>
 </resources>

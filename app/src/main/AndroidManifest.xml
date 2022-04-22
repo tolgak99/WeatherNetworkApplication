@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NetworkApplication">
         <activity
+            android:name=".Activities.Activities.WeatherDetailedActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activities.Activities.WeatherListActivity"
             android:exported="false" />
         <activity
